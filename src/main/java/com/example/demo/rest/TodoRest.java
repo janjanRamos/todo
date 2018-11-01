@@ -54,7 +54,7 @@ public class TodoRest {
 		todoRepository.save(todo);
 	}
 
-	@PostMapping("/todo/undone/{id}")
+	@PostMapping("/todos/undone/{id}")
 	public void undoneById(@PathVariable(value = "id") Integer id) {
 		Todo todo = todoRepository.findById(id).get();
 		todo.setDone(false);
