@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.GoogleCharts;
 import com.example.demo.model.Todo;
 import com.example.demo.repository.TodoRepository;
 
@@ -21,6 +22,16 @@ public class TodoRest {
 
 	@Autowired
 	private TodoRepository todoRepository;
+	
+	@GetMapping("/chart")
+	public GoogleCharts chart() {
+		GoogleCharts chart = new GoogleCharts();
+		int done = todoRepository.quantityDone();
+		int undone = todoRepository.quantityUndone();
+		chart.setDone(done);
+		chart.setUndone(undone);
+		return chart;
+	}
 
 	@GetMapping("/todos")
 	public List<Todo> all() {
