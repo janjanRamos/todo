@@ -22,14 +22,15 @@ public class TodoRest {
 
 	@Autowired
 	private TodoRepository todoRepository;
-	
+
 	@GetMapping("/chart")
 	public GoogleCharts chart() {
 		GoogleCharts chart = new GoogleCharts();
-		int done = todoRepository.quantityDone();
-		int undone = todoRepository.quantityUndone();
-		chart.setDone(done);
-		chart.setUndone(undone);
+		Integer done = todoRepository.quantityDone();
+		Integer undone = todoRepository.quantityUndone();
+
+		chart.setDone(done != null ? done : 0);
+		chart.setUndone(undone != null ? undone : 0);
 		return chart;
 	}
 

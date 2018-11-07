@@ -2,22 +2,22 @@ package com.example.demo.model;
 
 public class GoogleCharts {
 
-	private int done;
-	private int undone;
+	private Integer done;
+	private Integer undone;
 
-	public int getDone() {
+	public Integer getDone() {
 		return done;
 	}
 
-	public void setDone(int done) {
+	public void setDone(Integer done) {
 		this.done = done;
 	}
 
-	public int getUndone() {
+	public Integer getUndone() {
 		return undone;
 	}
 
-	public void setUndone(int undone) {
+	public void setUndone(Integer undone) {
 		this.undone = undone;
 	}
 
